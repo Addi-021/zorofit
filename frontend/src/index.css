@@ -856,7 +856,7 @@ button {
 
 
 /* =========================
-   FOOD SEARCH
+   FOOD SEARCH - Nutrition page
 ========================= */
 
 .food-search {
@@ -915,7 +915,7 @@ button {
 
 
 /* =========================
-   MEASUREMENTS
+   MEASUREMENTS Page
 ========================= */
 
 .measurement-section {
@@ -1003,5 +1003,210 @@ button {
 @media (max-width: 600px) {
   .measurement-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+/* =========================
+   PROGRESS PAGE
+========================= */
+
+.progress-period {
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 14px;
+}
+
+.progress-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.progress-section h2 {
+  margin: 0 0 20px;
+  color: #111827;
+  font-size: 18px;
+}
+
+.progress-empty {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  border: 1px dashed #d1d5db;
+  border-radius: 10px;
+}
+
+.progress-empty-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.progress-empty h3 {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 16px;
+}
+
+.progress-empty p {
+  max-width: 380px;
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.progress-measurement-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.progress-measurement-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.progress-measurement-card span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.progress-measurement-card strong {
+  color: #111827;
+  font-size: 25px;
+}
+
+.progress-measurement-card small {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+@media (max-width: 1000px) {
+  .progress-measurement-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .progress-measurement-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .progress-section {
+    padding: 16px;
+  }
+}
+
+
+
+/* =========================
+   PROFILE PAGE
+========================= */
+
+.profile-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.profile-section h2 {
+  margin: 0 0 22px;
+  color: #111827;
+  font-size: 18px;
+}
+
+.profile-subheading {
+  margin-top: 32px !important;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-field label {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.profile-field input,
+.profile-field select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font: inherit;
+}
+
+.profile-field input:focus,
+.profile-field select:focus {
+  outline: none;
+  border-color: #111827;
+}
+
+.profile-save-button {
+  margin-top: 28px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.profile-save-button:hover {
+  opacity: 0.9;
+}
+
+.profile-notice {
+  margin-top: 14px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+@media (max-width: 650px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-section {
+    padding: 18px;
   }
 }
