@@ -1,4 +1,3 @@
-
 import os
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
@@ -20,3 +19,11 @@ SessionLocal = sessionmaker(
 )
 
 Base = declarative_base()
+
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
