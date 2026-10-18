@@ -1,13 +1,13 @@
-
-from datetime import datetime
+from datetime import date, datetime
 
 from sqlalchemy import (
     Column,
+    Date,
+    DateTime,
+    Float,
+    ForeignKey,
     Integer,
     String,
-    Float,
-    DateTime,
-    ForeignKey,
 )
 from sqlalchemy.orm import relationship
 
@@ -42,8 +42,32 @@ class UserProfile(Base):
         nullable=False,
     )
 
+    age = Column(Integer, nullable=True)
     height_cm = Column(Float, nullable=True)
     current_weight_kg = Column(Float, nullable=True)
+    target_weight_kg = Column(Float, nullable=True)
     fitness_goal = Column(String(100), nullable=True)
+    activity_level = Column(String(50), nullable=True)
 
     user = relationship("User", back_populates="profile")
+
+
+class Measurement(Base):
+    __tablename__ = "measurements"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+
+    recorded_on = Column(Date, nullable=False, default=date.today)
+    weight_kg = Column(Float, nullable=True)
+    chest_cm = Column(Float, nullable=True)
+    waist_cm = Column(Float, nullable=True)
+    hips_cm = Column(Float, nullable=True)
+    arms_cm = Column(Float, nullable=True)
+    thighs_cm = Column(Float, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)

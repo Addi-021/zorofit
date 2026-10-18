@@ -1210,3 +1210,255 @@ button {
     padding: 18px;
   }
 }
+
+
+/*------------------------
+    LOGIN PAGE
+------------------------*/
+/* Auth pages */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: #171a21;
+  border: 1px solid #242832;
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-card h1 {
+  font-size: 26px;
+}
+
+.auth-card p {
+  color: #8f96a3;
+  font-size: 14px;
+}
+
+.auth-card input {
+  background: #0f1115;
+  border: 1px solid #343a46;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  font: inherit;
+  outline: none;
+}
+
+.auth-card input:focus {
+  border-color: #c8ff00;
+}
+
+.auth-error {
+  background: #2a1517;
+  border: 1px solid #5c2227;
+  color: #ff8a8a;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.auth-switch {
+  text-align: center;
+  color: #8f96a3;
+  font-size: 14px;
+}
+
+.auth-switch a {
+  color: #c8ff00;
+}
+
+
+
+
+
+
+/* Chart and history */
+
+.chart-empty {
+  padding: 50px 20px;
+  text-align: center;
+  color: #8f96a3;
+  border: 1px dashed #343a46;
+  border-radius: 10px;
+}
+
+.history-table {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+}
+
+.history-row {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(6, 1fr) 80px;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #242832;
+  color: #ffffff;
+  font-size: 14px;
+  min-width: 640px;
+}
+
+.history-head {
+  border-top: none;
+  color: #8f96a3;
+  font-size: 13px;
+}
+
+.history-delete {
+  background: transparent;
+  border: 1px solid #5c2227;
+  color: #ff8a8a;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Dark theme for the white pages */
+
+.measurement-section,
+.progress-section,
+.profile-section,
+.nutrition-section,
+.nutrition-card {
+  background: #171a21;
+  border-color: #242832;
+  color: #ffffff;
+}
+
+.progress-section h2,
+.profile-section h2,
+.measurement-section h2,
+.nutrition-section h2,
+.measurement-empty h3,
+.progress-empty h3,
+.food-item h3,
+.nutrition-card strong,
+.progress-measurement-card strong,
+.food-search-item strong {
+  color: #ffffff;
+}
+
+.measurement-field label,
+.profile-field label {
+  color: #a7adb8;
+}
+
+.measurement-field input,
+.profile-field input,
+.profile-field select,
+.progress-period,
+.nutrition-form input,
+.nutrition-form select {
+  background: #0f1115;
+  border: 1px solid #343a46;
+  color: #ffffff;
+}
+
+.measurement-field input:focus,
+.profile-field input:focus,
+.profile-field select:focus {
+  border-color: #c8ff00;
+}
+
+.measurement-save-button,
+.profile-save-button,
+.nutrition-form button {
+  background: #c8ff00;
+  color: #101010;
+  font-weight: 700;
+}
+
+.measurement-empty,
+.progress-empty,
+.progress-measurement-card,
+.food-item {
+  border-color: #343a46;
+}
+
+.measurement-empty p,
+.progress-empty p,
+.progress-measurement-card span,
+.progress-measurement-card small,
+.food-item p,
+.food-nutrients,
+.nutrition-card span,
+.nutrition-card small,
+.profile-notice {
+  color: #8f96a3;
+}
+
+.progress-empty-icon {
+  background: #222731;
+  color: #c8ff00;
+}
+
+/* Progress metric tabs and summary */
+
+.metric-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.metric-tab {
+  background: #0f1115;
+  border: 1px solid #343a46;
+  color: #a7adb8;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.metric-tab:hover {
+  color: #ffffff;
+}
+
+.metric-tab.active {
+  background: #c8ff00;
+  border-color: #c8ff00;
+  color: #101010;
+  font-weight: 700;
+}
+
+.summary-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.summary-item {
+  background: #0f1115;
+  border: 1px solid #242832;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.summary-item span {
+  color: #8f96a3;
+  font-size: 13px;
+}
+
+.summary-item strong {
+  color: #ffffff;
+  font-size: 20px;
+}

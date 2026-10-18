@@ -1,5 +1,5 @@
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { api } from "../api";
 
 function Profile() {
   const [profile, setProfile] = useState({
@@ -11,17 +11,62 @@ function Profile() {
     goal: "",
     activityLevel: "",
   });
+  const [message, setMessage] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    async function load() {
+      try {
+        const [user, p] = await Promise.all([
+          api("/users/me"),
+          api("/users/me/profile"),
+        ]);
+                setProfile((prev) => ({
+          ...prev,
+          name: user.name,
+          age: p.age ?? "",
+          height: p.height_cm ?? "",
+          weight: p.current_weight_kg ?? "",
+          targetWeight: p.target_weight_kg ?? "",
+          goal: p.fitness_goal ?? "",
+          activityLevel: p.activity_level ?? "",
+        }));
+      } catch (err) {
+        setMessage(err.message);
+      }
+    }
+    load();
+  }, []);
 
   const handleChange = (e) => {
-    setProfile({
-      ...profile,
-      [e.target.name]: e.target.value,
-    });
+    setProfile({ ...profile, [e.target.name]: e.target.value });
   };
 
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
-    console.log("Profile details:", profile);
+    setSaving(true);
+    setMessage("");
+
+    try {
+      await api("/users/me/profile", {
+        method: "PUT",
+         body: JSON.stringify({
+          age: profile.age ? Number(profile.age) : null,
+          height_cm: profile.height ? Number(profile.height) : null,
+          current_weight_kg: profile.weight ? Number(profile.weight) : null,
+          target_weight_kg: profile.targetWeight
+            ? Number(profile.targetWeight)
+            : null,
+          fitness_goal: profile.goal || null,
+          activity_level: profile.activityLevel || null,
+        }),
+      });
+      setMessage("Profile saved.");
+    } catch(err) {
+      setMessage(err.message);
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -39,14 +84,7 @@ function Profile() {
         <div className="profile-grid">
           <div className="profile-field">
             <label htmlFor="name">Full Name</label>
-            <input
-              id="name"
-              name="name"
-              value={profile.name}
-              onChange={handleChange}
-              placeholder="Enter your name"
-              required
-            />
+            <input id="name" name="name" value={profile.name} readOnly />
           </div>
 
           <div className="profile-field">
@@ -141,14 +179,15 @@ function Profile() {
           </div>
         </div>
 
-        <button className="profile-save-button" type="submit">
-          Save Profile
+        <button className="profile-save-button" type="submit" disabled={saving}>
+          {saving ? "Saving..." : "Save Profile"}
         </button>
       </form>
 
+      {message && <p className="profile-notice">{message}</p>}
       <p className="profile-notice">
-        Profile details are not saved permanently yet.
-        Backend integration will be added later.
+        Height, weight and goal are saved to your account. Age, target weight
+        and activity level will be saved after the next database update.
       </p>
     </div>
   );

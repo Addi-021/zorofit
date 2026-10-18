@@ -1,8 +1,12 @@
+# uvicorn app.main:app    to run the server
+
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import Depends, FastAPI
 from sqlalchemy import text
 from sqlalchemy.orm import Session
-
 from app.database import get_db
+from app.routers import auth, users
+from app.routers import auth, measurements, users
 
 app = FastAPI(
     title="ZoroFit API",
@@ -10,6 +14,17 @@ app = FastAPI(
     version="1.0.0",
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(auth.router)
+app.include_router(users.router)
+app.include_router(measurements.router)
 
 @app.get("/")
 def home():
