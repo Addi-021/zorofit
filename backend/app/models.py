@@ -1,6 +1,7 @@
 from datetime import date, datetime
 
 from sqlalchemy import (
+    Boolean,
     Column,
     Date,
     DateTime,
@@ -8,10 +9,29 @@ from sqlalchemy import (
     ForeignKey,
     Integer,
     String,
+    Text,
 )
 from sqlalchemy.orm import relationship
 
 from app.database import Base
+
+class JournalEntry(Base):
+    __tablename__ = "journal_entries"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+
+    entry_date = Column(Date, nullable=False, default=date.today)
+    entry_type = Column(String(30), nullable=False, default="general")
+    title = Column(String(200), nullable=False)
+    content = Column(Text, nullable=False, default="")
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 
 class User(Base):
@@ -43,11 +63,17 @@ class UserProfile(Base):
     )
 
     age = Column(Integer, nullable=True)
+    sex = Column(String(20), nullable=True)
     height_cm = Column(Float, nullable=True)
     current_weight_kg = Column(Float, nullable=True)
     target_weight_kg = Column(Float, nullable=True)
     fitness_goal = Column(String(100), nullable=True)
     activity_level = Column(String(50), nullable=True)
+    experience_level = Column(String(30), nullable=True)
+    workout_days_per_week = Column(Integer, nullable=True)
+    onboarding_completed = Column(
+        Boolean, nullable=False, default=False, server_default="false"
+    )
 
     user = relationship("User", back_populates="profile")
 

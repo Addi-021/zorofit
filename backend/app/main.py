@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.routers import auth, users
 from app.routers import auth, measurements, users
-
+from app.routers import journal
 app = FastAPI(
     title="ZoroFit API",
     description="API for ZoroFit application",
@@ -25,6 +25,7 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(users.router)
 app.include_router(measurements.router)
+app.include_router(journal.router)
 
 @app.get("/")
 def home():

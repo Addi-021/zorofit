@@ -38,11 +38,16 @@ function Dashboard() {
     .slice(-10)
     .map((m) => ({ date: m.recorded_on, value: m.weight_kg }));
 
+  const hour = new Date().getHours();
+  const greeting =
+    hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+  const firstName = user ? user.name.split(" ")[0] : "";
+
   return (
     <div className="dashboard">
       <div className="dashboard-header">
         <div>
-          <h1>Good day, {user ? user.name : ""} 👋</h1>
+          <h1>{greeting}, {firstName} 👋</h1>
           <p>Here's your fitness overview for today.</p>
         </div>
 

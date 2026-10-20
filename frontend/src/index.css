@@ -1462,3 +1462,41 @@ button {
   color: #ffffff;
   font-size: 20px;
 }
+
+
+
+
+/* Onboarding */
+
+.onboarding-card {
+  max-width: 440px;
+}
+
+.onboarding-steps {
+  color: #c8ff00;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.auth-card select {
+  background: #0f1115;
+  border: 1px solid #343a46;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  font: inherit;
+  outline: none;
+}
+
+.auth-card select:focus {
+  border-color: #c8ff00;
+}
+
+.onboarding-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
