@@ -105,7 +105,8 @@ function Landing() {
                <div className="lp-hero-text">
           <p className="lp-eyebrow">TRACK. JOURNAL. BECOME BETTER.</p>
           <h1>
-            Discipline yourself. <span>Push past your limits.</span>
+            More than just a fitness.<br></br>
+                      <span> It's a lifestyle.</span>
           </h1>
           <p className="lp-sub">
             ZoroFit helps you track your workouts and nutrition, journal every

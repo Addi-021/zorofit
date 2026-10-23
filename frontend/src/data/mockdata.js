@@ -52,22 +52,22 @@ workoutPlans:[
   {
     id: 1,
     name: "Push Day",
-    Focus:"Chest, Triceps",
-    Exercises: 7,
+    focus:"Chest, Triceps",
+    exercises: 7,
     duration: 60,
   },
   {
     id: 2,
     name: "Pull Day",
-    Focus: "Back, Biceps",
-    Exercises: 6,
+    focus: "Back, Biceps",
+    exercises: 6,
     duration: 60,
   },
   {
     id: 3,
     name: "Leg + Shoulder Day",
-    Focus: "Quads, Hamstrings, Glutes, Shoulders",
-    Exercises: 8,
+    focus: "Quads, Hamstrings, Glutes, Shoulders",
+    exercises: 8,
     duration: 75,
   },
 ]}

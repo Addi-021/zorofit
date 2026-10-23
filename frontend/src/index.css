@@ -422,7 +422,10 @@ button {
   margin-bottom: 20px;
 }
 
-/* Workout cards container */
+/* =========================
+   Workout cards container
+========================= */
+/*  */
 
 .workout-plans {
   display: grid;
@@ -430,7 +433,10 @@ button {
   gap: 20px;
 }
 
-/* Individual workout card */
+/* =========================
+  Individual workout card
+========================= */
+/*  */
 
 .workout-plan-card {
   background: #171a21;
@@ -442,6 +448,10 @@ button {
   flex-direction: column;
 }
 
+
+/* =========================
+  Top section of the workout card
+========================= */
 /* Top section */
 
 .workout-plan-top {
@@ -469,6 +479,9 @@ button {
   font-size: 13px;
 }
 
+/* =========================
+ Text and button section of the workout card
+========================= */
 /* Text */
 
 .workout-plan-card h3 {
@@ -495,7 +508,9 @@ button {
   margin-top: auto;
 }
 
-/* Workout preview */
+/* =========================
+  Workout preview modal
+========================= */
 
 .workout-preview {
   margin-top: 30px;
@@ -549,7 +564,10 @@ button {
   color: #8f96a3;
 }
 
-/* Responsive */
+/* =========================
+ Responsive
+========================= */
+
 
 @media (max-width: 1100px) {
   .workout-plans {
@@ -1283,9 +1301,9 @@ button {
 
 
 
-
-/* Chart and history */
-
+/* =========================
+  Chart and history
+========================= */
 .chart-empty {
   padding: 50px 20px;
   text-align: center;
@@ -1327,6 +1345,9 @@ button {
   cursor: pointer;
 }
 
+/* =========================
+ Dark theme for the white pages
+========================= */
 /* Dark theme for the white pages */
 
 .measurement-section,
@@ -1406,6 +1427,9 @@ button {
   color: #c8ff00;
 }
 
+/* =========================
+  Progress metric tabs and summary
+========================= */
 /* Progress metric tabs and summary */
 
 .metric-tabs {
@@ -1465,7 +1489,9 @@ button {
 
 
 
-
+/* =========================
+  Onboarding pages
+========================= */
 /* Onboarding */
 
 .onboarding-card {
@@ -1499,4 +1525,155 @@ button {
   gap: 10px;
   justify-content: flex-end;
   margin-top: 6px;
+}
+
+
+/* =========================
+ Journal page v.1
+========================= */
+/* Journal round 1 */
+
+.journal-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.journal-search {
+  background: #171a21;
+  border: 1px solid #242832;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 10px;
+  font: inherit;
+  outline: none;
+}
+
+.journal-search:focus {
+  border-color: #c8ff00;
+}
+
+.journal-group-title {
+  color: #c8ff00;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 6px 4px;
+}
+
+.journal-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.journal-row .journal-item {
+  flex: 1;
+  min-width: 0;
+}
+
+.journal-preview {
+  color: #777f8d;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pin-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.25;
+  padding: 12px 6px;
+  font-size: 14px;
+}
+
+.pin-btn:hover,
+.pin-btn.on {
+  opacity: 1;
+}
+
+.template-wrap {
+  position: relative;
+}
+
+.template-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: #171a21;
+  border: 1px solid #343a46;
+  border-radius: 10px;
+  padding: 6px;
+  min-width: 190px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.template-menu button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.template-menu button:hover {
+  background: #222731;
+}
+
+.mood-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8f96a3;
+  font-size: 13px;
+}
+
+.mood-picker button {
+  background: #0f1115;
+  border: 1px solid #343a46;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.mood-picker button.on {
+  border-color: #c8ff00;
+  background: #1d212a;
+}
+
+.journal-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #8f96a3;
+  font-size: 13px;
+}
+
+.journal-footer .save-state {
+  margin-left: auto;
+}
+
+.save-state.saved {
+  color: #c8ff00;
+}
+
+.save-state.error {
+  color: #ff8a8a;
+}
+
+.journal-placeholder {
+  color: #8f96a3;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 320px;
 }

@@ -1,13 +1,11 @@
-# uvicorn app.main:app    to run the server
+# uvicorn app.main:app --reload // to run the server
 
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import Depends, FastAPI
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 from app.database import get_db
-from app.routers import auth, users
-from app.routers import auth, measurements, users
-from app.routers import journal
+from app.routers import auth, journal, measurements, users, workouts
 app = FastAPI(
     title="ZoroFit API",
     description="API for ZoroFit application",
@@ -26,6 +24,7 @@ app.include_router(auth.router)
 app.include_router(users.router)
 app.include_router(measurements.router)
 app.include_router(journal.router)
+app.include_router(workouts.router)
 
 @app.get("/")
 def home():

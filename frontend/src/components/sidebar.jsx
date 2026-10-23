@@ -14,12 +14,12 @@ function Sidebar() {
       <div className="logo">ZOROFIT</div>
 
       <nav className="nav-menu">
-        <NavLink to="/" end>🏠 Dashboard</NavLink>
+        <NavLink to="/dashboard" end>🏠 Dashboard</NavLink>
         <NavLink to="/workouts">🏋️ Workouts</NavLink>
         <NavLink to="/nutrition">🍎 Nutrition</NavLink>
         <NavLink to="/measurements">📏 Measurements</NavLink>
-        <NavLink to="/journal">📝 Journal</NavLink>
-        <NavLink to="/progress">📊 Progress</NavLink>
+        <NavLink to="/journal">📓 Journal</NavLink>
+        <NavLink to="/progress">📈 Progress</NavLink>
         <NavLink to="/profile">👤 Profile</NavLink>
 
         <a href="#logout" onClick={(e) => { e.preventDefault(); handleLogout(); }}>

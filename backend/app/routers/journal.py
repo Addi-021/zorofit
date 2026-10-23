@@ -28,7 +28,11 @@ def list_entries(
     stmt = select(JournalEntry).where(JournalEntry.user_id == current_user.id)
     if entry_type:
         stmt = stmt.where(JournalEntry.entry_type == entry_type)
-    stmt = stmt.order_by(JournalEntry.entry_date.desc(), JournalEntry.id.desc())
+    stmt = stmt.order_by(
+        JournalEntry.pinned.desc(),
+        JournalEntry.entry_date.desc(),
+        JournalEntry.id.desc(),
+    )
     return db.scalars(stmt).all()
 
 
@@ -44,6 +48,8 @@ def create_entry(
         entry_type=data.entry_type,
         title=data.title,
         content=data.content,
+        mood=data.mood,
+        pinned=data.pinned,
     )
     db.add(entry)
     db.commit()
@@ -61,8 +67,9 @@ def update_entry(
     entry = get_own_entry(entry_id, current_user, db)
 
     for field, value in data.model_dump(exclude_unset=True).items():
-        if value is not None:
-            setattr(entry, field, value)
+        if value is None and field != "mood":
+            continue
+        setattr(entry, field, value)
 
     db.commit()
     db.refresh(entry)
